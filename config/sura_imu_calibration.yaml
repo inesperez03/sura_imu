@@ -1,0 +1,40 @@
+sura_imu_calibration:
+  metadata:
+    generated_at_unix: 1776945083.574
+    imu_topic: '/imu_broadcaster/imu'
+    mag_topic: '/magnetometer_broadcaster/mag'
+    mode: 'wizard'
+  gyro:
+    available: true
+    quality_score: 81.505
+    quality_label: 'good'
+    sample_count: 901
+    duration_sec: 8.008
+    bias_x: -0.0487065866
+    bias_y: -0.0056065306
+    bias_z: 0.0499586566
+    noise_stddev_x: 0.0057271358
+    noise_stddev_y: 0.0056929501
+    noise_stddev_z: 0.0052255348
+  magnetometer:
+    available: true
+    quality_score: 71.686
+    quality_label: 'fair'
+    sample_count: 3600
+    duration_sec: 35.002
+    offset_x: -24.3750008345
+    offset_y: -23.4750003815
+    offset_z: 25.2000002861
+    scale_x: 1.3086419693
+    scale_y: 0.9059828977
+    scale_z: 0.8833333439
+    octant_coverage: 3
+    residual_percent: 8.6641
+  compass:
+    available: true
+    quality_score: 47.755
+    quality_label: 'poor'
+    yaw_offset_deg: -19.102486
+    heading_stddev_deg: 4.564212
+    consistency_deg: 13.922591
+    heading_samples: 2001
