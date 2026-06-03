@@ -1,11 +1,11 @@
-sura_imu_filter:
+/**:
   ros__parameters:
     stateless: false
     use_mag: true
     publish_tf: false
     reverse_tf: false
     fixed_frame: world_ned
-    constant_dt: 0.0
+    constant_dt: 0.005
     publish_debug_topics: false
     world_frame: ned
     gain: 0.1
