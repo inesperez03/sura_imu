@@ -1,6 +1,7 @@
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch.conditions import IfCondition, UnlessCondition
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, PythonExpression
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
@@ -20,9 +21,12 @@ def generate_launch_description():
     filtered_imu_topic = LaunchConfiguration("filtered_imu_topic")
     use_calibration = LaunchConfiguration("use_calibration")
     calibration_yaml = LaunchConfiguration("calibration_yaml")
+    environment = LaunchConfiguration("environment")
+    is_sim = PythonExpression(["'", environment, "' == 'sim'"])
 
     return LaunchDescription(
         [
+            DeclareLaunchArgument("environment", default_value="real"),
             DeclareLaunchArgument(
                 "raw_imu_topic",
                 default_value="controller/imu_broadcaster/imu",
@@ -60,6 +64,7 @@ def generate_launch_description():
                         "enable_calibration": use_calibration,
                     }
                 ],
+                condition=UnlessCondition(is_sim),
             ),
             Node(
                 package="imu_filter_madgwick",
@@ -72,6 +77,24 @@ def generate_launch_description():
                     ("imu/mag", calibrated_mag_topic),
                     ("imu/data", filtered_imu_topic),
                 ],
+                condition=UnlessCondition(is_sim),
+            ),
+            Node(
+                package="sura_imu",
+                executable="calibration_filter",
+                name="sura_imu_sim_relay",
+                output="screen",
+                parameters=[
+                    {
+                        "input_imu_topic": raw_imu_topic,
+                        "input_mag_topic": mag_topic,
+                        "output_imu_topic": filtered_imu_topic,
+                        "output_mag_topic": calibrated_mag_topic,
+                        "calibration_file": calibration_yaml,
+                        "enable_calibration": False,
+                    }
+                ],
+                condition=IfCondition(is_sim),
             ),
         ]
     )
