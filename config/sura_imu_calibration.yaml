@@ -1,40 +1,40 @@
 sura_imu_calibration:
   metadata:
-    generated_at_unix: 1776945083.574
-    imu_topic: '/imu_broadcaster/imu'
-    mag_topic: '/magnetometer_broadcaster/mag'
+    generated_at_unix: 1.781e+09
+    imu_topic: '/bluerov/controller/imu_broadcaster/imu'
+    mag_topic: '/bluerov/controller/magnetometer_broadcaster/mag'
     mode: 'wizard'
   gyro:
     available: true
-    quality_score: 81.505
+    quality_score: 81.0569
     quality_label: 'good'
-    sample_count: 901
-    duration_sec: 8.008
-    bias_x: -0.0487065866
-    bias_y: -0.0056065306
-    bias_z: 0.0499586566
-    noise_stddev_x: 0.0057271358
-    noise_stddev_y: 0.0056929501
-    noise_stddev_z: 0.0052255348
+    sample_count: 156
+    duration_sec: 8.04635
+    bias_x: -0.0534066
+    bias_y: -0.00088772
+    bias_z: 0.0501289
+    noise_stddev_x: 0.00591405
+    noise_stddev_y: 0.00604272
+    noise_stddev_z: 0.00509206
   magnetometer:
     available: true
-    quality_score: 71.686
-    quality_label: 'fair'
-    sample_count: 3600
-    duration_sec: 35.002
-    offset_x: -24.3750008345
-    offset_y: -23.4750003815
-    offset_z: 25.2000002861
-    scale_x: 1.3086419693
-    scale_y: 0.9059828977
-    scale_z: 0.8833333439
+    quality_score: 39.0661
+    quality_label: 'poor'
+    sample_count: 677
+    duration_sec: 35.0516
+    offset_x: 10.275
+    offset_y: -19.05
+    offset_z: 42.15
+    scale_x: 1.07134
+    scale_y: 0.768078
+    scale_z: 1.30781
     octant_coverage: 3
-    residual_percent: 8.6641
+    residual_percent: 25.6735
   compass:
     available: true
-    quality_score: 47.755
+    quality_score: 47.0743
     quality_label: 'poor'
-    yaw_offset_deg: -19.102486
-    heading_stddev_deg: 4.564212
-    consistency_deg: 13.922591
-    heading_samples: 2001
+    yaw_offset_deg: -4.36353
+    heading_stddev_deg: 1.72925
+    consistency_deg: 33.2667
+    heading_samples: 311

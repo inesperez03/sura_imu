@@ -33,7 +33,7 @@ def generate_launch_description():
             ),
             DeclareLaunchArgument(
                 "mag_topic",
-                default_value="magnetometer_broadcaster/mag",
+                default_value="controller/magnetometer_broadcaster/mag",
             ),
             DeclareLaunchArgument(
                 "calibrated_imu_topic",

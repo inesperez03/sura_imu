@@ -5,7 +5,7 @@
     publish_tf: false
     reverse_tf: false
     fixed_frame: world_ned
-    constant_dt: 0.005
+    constant_dt: 0.0035
     publish_debug_topics: false
     world_frame: ned
     gain: 0.1
